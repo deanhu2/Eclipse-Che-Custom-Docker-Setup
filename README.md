@@ -14,6 +14,12 @@ Start your registry
 docker run -d -p 5000:5000 --name registry registry:2
 
 ```
+Note - If you intend to run your own registry you may want to set the docker container to restart automatically everytime
+the machine is booted. See below.
+
+```
+docker run -d --restart unless-stopped -p 5000:5000 --name registry registry:2
+```
 
 Pull (or build) some image from the original docker hub - debian in this instance so we can add cmake etc.
 
