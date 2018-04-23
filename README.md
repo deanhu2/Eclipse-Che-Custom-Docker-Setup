@@ -64,3 +64,24 @@ Now that the stack has been created you must create or add this stack to your wo
 ```
 
 The workspace should now launch and try to boot the image you created. However so far all this does is re-use an existing image given to use by eclipse-che and we need to expand on it to add packages we'd wish to use for development.
+
+## Extending the image
+
+Now that we have our own registry we want to extend the base image "myfirstimage" and add packages to it.
+
+```
+1. Create a new stack
+2. Select create stack from recipe
+3. Select dockerfile and continue on to the instructions below otherwise skip the next part.
+```
+
+As the instructions above deal only with extending an image, Note its possible to use the base image from an external dockerfile and push your resulting image back to your new docker register and complete the process in that way or simply paste your docker file directly into the new stack's recipe section.
+
+Extending using a recipe:
+
+```
+FROM localhost:5000/myfirstimage
+RUN apt-get install cmake
+```
+
+and save & apply changes.
